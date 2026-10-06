@@ -2,8 +2,48 @@ let humanScore = 0;
 let computerScore = 0;
 
 function getComputerChoice(){
-    let choice = Math.floor(Math.random() * 3);
-    choice == 0 ? console.log("rock") : choice == 1 ? console.log("paper") : console.log("scissors");
+    let choiceComputer = Math.floor(Math.random() * 3);
+    return choiceComputer == 0 ? 'rock' : choiceComputer == 1 ? "paper" : "scissors";
 }
 
-getComputerChoice();
+function getHumanChoice(){
+     let choiceHuman = prompt("What's your choice?");
+     return choiceHuman = choiceHuman.toLowerCase();
+}
+
+
+function playRound(humanChoice, computerChoice) {
+    if(humanChoice === computerChoice){
+        console.log("you got the same choice try again");
+    }
+  else if(humanChoice === 'rock' && computerChoice === 'scissors')
+  {
+    humanScore++;
+    console.log("you win!");
+    console.log(humanChoice, computerChoice);
+  }
+  else if(humanChoice === 'scissors' && computerChoice === 'paper')
+  {
+    humanScore++;
+    console.log("you win!");
+    console.log(humanChoice, computerChoice);
+  }
+  else if(humanChoice === 'paper' && computerChoice === 'rock')
+  {
+    humanScore++;
+    console.log("you win!");
+    console.log(humanChoice, computerChoice);
+  }
+  else
+  {
+    computerScore++;
+    console.log("you lose!");
+    console.log(humanChoice, computerChoice);
+  }
+  
+}
+
+const humanSelection = getHumanChoice();
+const computerSelection = getComputerChoice();
+
+playRound(humanSelection, computerSelection);
